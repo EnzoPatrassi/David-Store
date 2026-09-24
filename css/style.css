@@ -1,0 +1,283 @@
+/* --- RESET Y VARIABLES GENERALES --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Paleta Elegante y Vibrante */
+    --bg-color: #f8f9fc;
+    --text-main: #1a1a2e;
+    --text-muted: #64748b;
+    --card-bg: #ffffff;
+    --accent-color: #e94057; 
+    --vibrant-gradient: linear-gradient(135deg, #8A2387 0%, #E94057 50%, #F27121 100%);
+    --whatsapp-grad: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    
+    /* Sombras refinadas */
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 20px 40px rgba(233, 64, 87, 0.15); /* Sombra con ligero tono vibrante */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- ENCABEZADO VIBRANTE --- */
+.hero-header {
+    background: var(--vibrant-gradient);
+    color: #ffffff;
+    text-align: center;
+    padding: 5rem 1rem 6rem; /* Más espacio para respirar */
+    box-shadow: 0 4px 20px rgba(233, 64, 87, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Curva elegante en la parte inferior del header */
+.hero-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: var(--bg-color);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 100%);
+}
+
+.header-content h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+}
+
+.header-content p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- MENÚ DE CATEGORÍAS --- */
+.menu-categorias {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+    gap: 15px;
+    padding: 2rem 5% 0;
+    max-width: 1300px;
+    margin: -30px auto 0; /* Sube un poco sobre el header */
+    position: relative;
+    z-index: 10;
+}
+
+.btn-categoria {
+    background-color: var(--card-bg);
+    color: var(--text-main);
+    border: none;
+    padding: 10px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-soft);
+}
+
+/* Efecto vibrante al pasar el mouse o al estar seleccionada */
+.btn-categoria:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.btn-categoria.activo {
+    background: var(--vibrant-gradient);
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(233, 64, 87, 0.3);
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.contenedor-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 35px;
+    padding: 4rem 5%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* --- TARJETAS PREMIUM --- */
+.producto {
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0,0,0,0.02);
+    position: relative;
+}
+
+.card-3d:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(233, 64, 87, 0.1);
+}
+
+/* Imagen del producto */
+.img-container {
+    padding: 2.5rem;
+    background: #ffffff;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Sutil línea divisoria con gradiente */
+.img-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,0,0,0.05), transparent);
+}
+
+.producto img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+.producto:hover img {
+    transform: scale(1.1) rotate(-1deg);
+}
+
+/* Textos de la tarjeta */
+.producto-info {
+    padding: 1.8rem 1.5rem 0;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.producto h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+/* Precio y Botón */
+.producto-footer {
+    padding: 1.5rem;
+    margin-top: auto;
+    text-align: center;
+}
+
+.precio {
+    font-size: 1.8rem !important;
+    font-weight: 800;
+    color: var(--accent-color); /* El precio ahora resalta con el color vibrante */
+    margin-bottom: 1.2rem;
+}
+
+.boton-whatsapp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    background: var(--whatsapp-grad);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 15px rgba(37, 211, 102, 0.25);
+    font-size: 0.95rem;
+}
+
+.boton-whatsapp:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4);
+}
+
+/* --- PIE DE PÁGINA --- */
+footer {
+    background-color: var(--text-main);
+    color: #94a3b8;
+    text-align: center;
+    padding: 3rem 2rem;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}
+
+/* Ajustes para celulares (Responsive) */
+@media (max-width: 768px) {
+    .header-content h1 {
+        font-size: 2.8rem;
+    }
+    .contenedor-productos {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-header {
+        padding: 4rem 1rem 5rem;
+    }
+    .header-content h1 {
+        font-size: 2.2rem;
+    }
+    .contenedor-productos {
+        grid-template-columns: 1fr;
+        padding: 2rem 5%;
+    }
+}
+
+/* Clase vital para ocultar productos con JavaScript */
+.oculto {
+    display: none !important;
+}
+
+/* --- ETIQUETAS DE ESTADO (NUEVO / USADO) --- */
+.etiqueta-estado {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 2; /* Asegura que flote por encima de la imagen */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.estado-nuevo {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); /* Verde vibrante */
+    color: #ffffff;
+}
+
+.estado-usado {
+    background: linear-gradient(135deg, #ff9966 0%, #ff5e62 100%); /* Naranja vibrante */
+    color: #ffffff;
+}
