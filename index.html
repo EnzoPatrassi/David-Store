@@ -1,165 +1,113 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta cet="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Productos</title>
+    <title>Patrassi Tech - Catálogo</title>
     
-    <!-- Fuentes de Google (Poppins) para un diseño moderno -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
-    <!-- Iconos de FontAwesome para el botón de WhatsApp -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <header class="hero-header">
+        <div class="glow-orb"></div>
+        <div class="glow-orb orb-2"></div>
+        
         <div class="header-content">
-            <h1>Tecno Store</h1>
-            <p>Catálogo online. Envíame un mensaje para comprar.</p>
+            <span class="badge-hero"><i class="fa-solid fa-bolt"></i> Envíos en Mendoza</span>
+            <h1>Patrassi Tech</h1>
+            <p>Elevamos tu experiencia tecnológica. Equipos seleccionados de alta gama con asesoramiento personalizado.</p>
         </div>
     </header>
 
-    <main class="contenedor-productos">
+    <!-- CONTROLES -->
+    <div class="controles-catalogo">
+        <nav class="menu-categorias">
+            <button class="btn-categoria activo" data-filtro="todos">Todos</button>
+            <button class="btn-categoria" data-filtro="auriculares">Auriculares</button>
+            <button class="btn-categoria" data-filtro="smartwatchs">Smart Watchs</button>
+            <button class="btn-categoria" data-filtro="manoslibres">Manos Libres</button>
+            <button class="btn-categoria" data-filtro="parlantes">Parlantes</button>
+            <button class="btn-categoria" data-filtro="relojes">Relojes</button>
+        </nav>
+        
+        <div class="ordenador">
+            <select id="select-orden" class="select-elegante">
+                <option value="defecto">Ordenar por...</option>
+                <option value="precio-menor">Menor Precio</option>
+                <option value="precio-mayor">Mayor Precio</option>
+                <option value="az">Nombre (A - Z)</option>
+                <option value="za">Nombre (Z - A)</option>
+            </select>
+        </div>
+    </div>
 
-        <!-- Producto 1 -->
-        <article class="producto card-3d" data-categoria="tecnologia">
-            <div class="img-container">
-                <span class="etiqueta-estado estado-nuevo">Usado</span>
-                <img src="images/Parlante change 5.jpeg" alt="Parlante charge 5">
-            </div>
-            <div class="producto-info">
-                <h2>Parlante Charge 5</h2>
-            </div>
-            <div class="producto-footer">
-                <p class="precio">$55.000</p>
-                <a href="https://wa.me/5492616916791?text=Hola,%20me%20interesa%20el%20Parlante%20Charge%205" target="_blank" class="boton-whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i> Consultar
-                </a>
-            </div>
-        </article>
-
-        <!-- Producto 2 -->
-        <article class="producto card-3d" data-categoria="tecnologia">
-            <div class="img-container">
-                <span class="etiqueta-estado estado-nuevo">Nuevo</span>
-                <img src="images/PARLANTE PEQUEÑO “DOT MINI” XAEA.jpg" alt="PARLANTE PEQUEÑO “DOT MINI” XAEA">
-            </div>
-            <div class="producto-info">
-                <h2>Parlante pequeño DotMini XAEA Rojo</h2>
-            </div>
-            <div class="producto-footer">
-                <p class="precio">$50.000</p>
-                <a href="https://wa.me/5492616916791?text=Hola,%20me%20interesa%20el%20Parlante%20pequeño%20DotMini%20XAEA%Rojo" target="_blank" class="boton-whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i> Consultar
-                </a>
-            </div>
-        </article>
-
-        <!-- Producto 3 -->
-        <article class="producto card-3d" data-categoria="tecnologia">
-            <div class="img-container">
-                <span class="etiqueta-estado estado-nuevo">Nuevo</span>
-                <img src="images/PARLANTE PEQUEÑO “DOT MINI” XAEA NEGRO.jpg" alt="PARLANTE PEQUEÑO “DOT MINI” XAEA Negro">
-            </div>
-            <div class="producto-info">
-                <h2>Parlante pequeño DotMini XAEA Negro</h2>
-            </div>
-            <div class="producto-footer">
-                <p class="precio">$50.000</p>
-                <a href="https://wa.me/5492616916791?text=Hola,%20me%20interesa%20el%20Parlante%20pequeño%20DotMini%20XAEA%Negro" target="_blank" class="boton-whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i> Consultar
-                </a>
-            </div>
-        </article>
-
-        <!-- Producto 4 -->
-        <article class="producto card-3d" data-categoria="tecnologia">
-            <div class="img-container">
-                <span class="etiqueta-estado estado-nuevo">Nuevo</span>
-                <img src="images/Auriculares Havit Gamer H2001d 3.5mm Led Usb Micrófono.jpg" alt="Auriculares Havit Gamer H2001d 3.5mm Led Usb Micrófono">
-            </div>
-            <div class="producto-info">
-                <h2>Auriculares Havit Gamer</h2>
-            </div>
-            <div class="producto-footer">
-                <p class="precio">$45.000</p>
-                <a href="https://wa.me/5492616916791?text=Hola,%20me%20interesan%20los%20Auriculares%20Havit%20Gamer" target="_blank" class="boton-whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i> Consultar
-                </a>
-            </div>
-        </article>
-
-        <!-- Producto 5 -->
-        <article class="producto card-3d" data-categoria="tecnologia">
-            <div class="img-container">
-                <span class="etiqueta-estado estado-nuevo">Usado</span>
-                <img src="images/AURICULARES INALAMBRICOS F9.jpg" alt="AURICULARES INALAMBRICOS F9">
-            </div>
-            <div class="producto-info">
-                <h2>Auriculares F9</h2>
-            </div>
-            <div class="producto-footer">
-                <p class="precio">$12.000</p>
-                <a href="https://wa.me/5492616916791?text=Hola,%20me%20interesan%20los%20Auriculares%20F9" target="_blank" class="boton-whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i> Consultar
-                </a>
-            </div>
-        </article>
-
-        <!-- Producto 6 -->
-        <article class="producto card-3d" data-categoria="tecnologia">
-            <div class="img-container">
-                <span class="etiqueta-estado estado-nuevo">Usado</span>
-                <img src="images/Auriculares TOP HOUSE Tw931 Pro Blanco.jpg" alt="Auriculares TOP HOUSE Tw931 Pro Blanco">
-            </div>
-            <div class="producto-info">
-                <h2>Auriculares Top House</h2>
-            </div>
-            <div class="producto-footer">
-                <p class="precio">$30.000</p>
-                <a href="https://wa.me/5492616916791?text=Hola,%20me%20interesan%20los%20Auriculares%20Top%20House" target="_blank" class="boton-whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i> Consultar
-                </a>
-            </div>
-        </article>
-
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="contenedor-productos" id="contenedor-productos">
+        <!-- Los productos se generan aquí desde productos.js -->
     </main>
 
-    <!-- AGREGA EL SCRIPT AQUÍ -->
-    <script>
-        // Guardamos los botones y los productos en variables
-        const botones = document.querySelectorAll('.btn-categoria');
-        const productos = document.querySelectorAll('.producto');
-
-        // A cada botón le agregamos un "escuchador de clics"
-        botones.forEach(boton => {
-            boton.addEventListener('click', () => {
-                
-                // 1. Quitar el color activo al botón anterior y ponérselo al nuevo
-                botones.forEach(b => b.classList.remove('activo'));
-                boton.classList.add('activo');
-
-                // 2. Saber qué categoría se eligió
-                const filtro = boton.dataset.filtro;
-
-                // 3. Revisar cada producto y ocultarlo si no coincide
-                productos.forEach(producto => {
-                    if (filtro === 'todos' || producto.dataset.categoria === filtro) {
-                        producto.classList.remove('oculto'); // Lo muestra
-                    } else {
-                        producto.classList.add('oculto'); // Lo oculta
-                    }
-                });
-            });
-        });
-    </script>
-
-    <footer>
-        <p>&copy; 2026 Tecno Store. Todos los derechos reservados.</p>
+    <footer class="footer-premium">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Patrassi Tech</h3>
+                <p>Tu tienda de tecnología de confianza. Asesoramiento personalizado y los mejores equipos del mercado.</p>
+            </div>
+            <div class="footer-social">
+                <h4>Contactanos</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/5492616916791" aria-label="WhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Patrassi Tech. Todos los derechos reservados.</p>
+        </div>
     </footer>
+
+    <!-- BOTÓN FLOTANTE DEL CARRITO -->
+    <button class="btn-carrito-flotante" id="btn-abrir-carrito">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="carrito-contador" id="carrito-contador">0</span>
+    </button>
+
+    <!-- VENTANA LATERAL DEL CARRITO -->
+    <div class="carrito-overlay" id="carrito-overlay">
+        <div class="carrito-modal">
+            <div class="carrito-header">
+                <h2>Tu Pedido</h2>
+                <button class="btn-cerrar-carrito" id="btn-cerrar-carrito"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="carrito-body">
+                <div id="contenedor-items-carrito" class="contenedor-items-carrito">
+                    <p class="carrito-vacio">El carrito está vacío</p>
+                </div>
+                
+                <div class="carrito-total">
+                    <h3>Total: $<span id="carrito-total-precio">0</span></h3>
+                </div>
+                
+                <form id="form-checkout" class="formulario-checkout">
+                    <h3>Tus Datos</h3>
+                    <input type="text" id="cliente-nombre" placeholder="Nombre" required>
+                    <input type="text" id="cliente-apellido" placeholder="Apellido" required>
+                    <input type="number" id="cliente-dni" placeholder="DNI" required>
+                    <input type="number" id="cliente-telefono" placeholder="Teléfono" required>
+                    
+                    <button type="submit" class="btn-confirmar-compra">
+                        <i class="fa-brands fa-whatsapp"></i> Generar Pedido
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- EL SCRIPT DEBE IR AQUÍ, AL FINAL DE TODO -->
+    <script src="js/productos.js"></script>
 
 </body>
 </html>
