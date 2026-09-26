@@ -479,6 +479,48 @@ const listaProductos = [
     estado: "Nuevo",
     categoria: "manoslibres",
   },
+  {
+    nombre: "Cable Adaptador Lightning (M) a 3.5 (H)",
+    precio: "5.000",
+    imagen: "CABLE ADAPTADOR IPHONE LIGHTNING (M) A PLUG 3.5 (H).jpg",
+    estado: "Nuevo",
+    categoria: "adaptadores",
+  },
+  {
+    nombre: "Cable Adaptador Tipo C (M) a 3.5 (H)",
+    precio: "5.000",
+    imagen: "CABLE ADAPTADOR TIPO C (M) A PLUG 3.5 (H).jpg",
+    estado: "Nuevo",
+    categoria: "adaptadores",
+  },
+  {
+    nombre: "Adaptador HDMI a 2 HDMI",
+    precio: "5.000",
+    imagen: "ADAPTADOR HDMI A 2 HDMI.jpg",
+    estado: "Nuevo",
+    categoria: "adaptadores",
+  },
+  {
+    nombre: "Adaptador HUB USB 7 PUERTOS",
+    precio: "7.000",
+    imagen: "ADAPTADOR HUB USB 7 PUERTOS – BLANCO.jpg",
+    estado: "Nuevo",
+    categoria: "adaptadores",
+  },
+  {
+    nombre: "Adaptador SIM",
+    precio: "1.000",
+    imagen: "ADAPTADOR SIM.jpg",
+    estado: "Nuevo",
+    categoria: "adaptadores",
+  },
+  {
+    nombre: "Adaptador MICROSD a USB",
+    precio: "3.000",
+    imagen: "ADAPTADOR MICROSD A USB.jpg",
+    estado: "Nuevo",
+    categoria: "adaptadores",
+  },
 ];
 
 // --- VARIABLES Y ELEMENTOS DEL DOM ---
