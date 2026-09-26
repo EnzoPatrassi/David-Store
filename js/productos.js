@@ -46,7 +46,7 @@ const listaProductos = [
     categoria: "auriculares",
   },
   {
-    nombre: "Auricular Zyfer XaeaNegro",
+    nombre: "Auricular Zyfer Xaea Negro",
     precio: "45.000",
     imagen: "AURICULAR MODX-704 ZYFER – XAEA – NEGRO.jpg",
     estado: "Nuevo",
