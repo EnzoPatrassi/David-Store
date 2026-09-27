@@ -542,7 +542,7 @@ const formCheckout = document.getElementById("form-checkout");
 let filtroActual = "todos";
 
 // 1. LÓGICA DEL CARRITO (Con guardado automático en el navegador)
-let carrito = JSON.parse(localStorage.getItem("davidCarrito")) || [];
+let carrito = JSON.parse(localStorage.getItem("enzoCarrito")) || [];
 
 function guardarCarrito() {
   localStorage.setItem("davidCarrito", JSON.stringify(carrito));
@@ -650,7 +650,7 @@ formCheckout.addEventListener("submit", function (e) {
   const telefono = document.getElementById("cliente-telefono").value;
 
   // Armar el mensaje tipo Ticket
-  let texto = `*NUEVO PEDIDO - DAVID STORE*\n\n`;
+  let texto = `*NUEVO PEDIDO - ENZO HOUSE*\n\n`;
   texto += `👤 *Datos del cliente:*\n`;
   texto += `- Nombre: ${nombre} ${apellido}\n`;
   texto += `- DNI: ${dni}\n`;
