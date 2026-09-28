@@ -17,7 +17,7 @@ const listaProductos = [
   { nombre: "Auriculares BT Yexa Verde", precio: "32.400", imagen: "AURICULARES BT MODY-00HG – YEXA – VERDE.jpg", estado: "Nuevo", categoria: "auriculares", caracteristicas: ["Batería: 300mAh"] },
   { nombre: "Auriculares BT Yexa Beige", precio: "32.200", imagen: "AURICULARES BT MODY-00HH – YEXA – BEIGE.jpg", estado: "Nuevo", categoria: "auriculares", caracteristicas: ["Batería: 250mAh"] },
   { nombre: "Auriculares BT Yexa Blanco", precio: "32.200", imagen: "AURICULARES BT MODY-00HH – YEXA – BLANCO.jpg", estado: "Nuevo", categoria: "auriculares", caracteristicas: ["Batería: 250mAh"] },
-  { nombre: "Auriculares Havit Gamer Con Cable Y Micrófono", precio: "30.000", imagen: "Auriculares Havit Gamer.jpg", estado: "Nuevo", categoria: "auriculares", caracteristicas: ["Batería: 200mAh"] },
+  { nombre: "Auriculares Havit Gamer Con Cable Y Micrófono", precio: "30.000", imagen: "Auriculares Havit Gamer.jpg", estado: "Nuevo", categoria: "auriculares" },
 
   // --- MANOS LIBRES ---
   { nombre: "Manos Libres Top House", precio: "20.000", imagen: "Auriculares TOP HOUSE Tw931 Pro Blanco.jpg", estado: "Usado", categoria: "manoslibres", caracteristicas: ["Estuche: 300mAh", "Auric: 30mAh"] },
@@ -59,8 +59,8 @@ const listaProductos = [
   { nombre: "Parlante Pequeño Esfera Xaea Gris", precio: "20.300", imagen: "PARLANTE PEQUEÑO ESFERA MODX-004I – XAEA – GRIS.jpg", estado: "Nuevo", categoria: "parlantes", caracteristicas: ["Potencia: 5W", "Batería: 800mAh"] },
   { nombre: "Parlante Pequeño Esfera Xaea Rojo", precio: "20.300", imagen: "PARLANTE PEQUEÑO ESFERA MODX-004I – XAEA – ROJO.jpg", estado: "Nuevo", categoria: "parlantes", caracteristicas: ["Potencia: 5W", "Batería: 800mAh"] },
   { nombre: "Parlante Pequeño Xaea Negro", precio: "25.800", imagen: "PARLANTE PEQUEÑO MODX-004Y – XAEA – NEGRO.jpg", estado: "Nuevo", categoria: "parlantes", caracteristicas: ["Potencia: 8W", "Batería: 1200mAh"] },
-  { nombre: "Parlante Pequeño T5 Camuflado", precio: "16.500", imagen: "PARLANTE PEQUEÑO T5 – CAMUFLADO.jpg", estado: "Nuevo", categoria: "parlantes", caracteristicas: ["Potencia: 3W"] },
-  { nombre: "Parlante Pequeño T5 - Rojo", precio: "16.500", imagen: "PARLANTE PEQUEÑO T5 – ROJO.jpg", estado: "Nuevo", categoria: "parlantes", caracteristicas: ["Potencia: 3W"] },
+  { nombre: "Parlante Pequeño T5 Camuflado", precio: "16.500", imagen: "PARLANTE PEQUEÑO T5 – CAMUFLADO.jpg", estado: "Nuevo", categoria: "parlantes", caracteristicas: ["Potencia: 3W", "Batería: 400mAh"] },
+  { nombre: "Parlante Pequeño T5 - Rojo", precio: "16.500", imagen: "PARLANTE PEQUEÑO T5 – ROJO.jpg", estado: "Nuevo", categoria: "parlantes", caracteristicas: ["Potencia: 3W", "Batería: 400mAh"] },
 
   // --- SMART WATCHS ---
   { nombre: "Smart Watch GT5 Azul", precio: "36.000", imagen: "SMART WATCH GT5 MODV-00GF – VARIOS – AZUL.jpg", estado: "Nuevo", categoria: "smartwatchs", caracteristicas: ["Batería: 200mAh"] },
