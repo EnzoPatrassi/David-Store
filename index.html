@@ -3,109 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enzo House- Catálogo</title>
+    <title>Enzo House - Catálogo</title>
     
-    <!-- Fuentes de Google (Nunito) para un diseño amigable -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Carga de Tailwind CSS v4 -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        body { font-family: 'Nunito', sans-serif; }
+    </style>
 </head>
-<body>
+<body class="bg-slate-50 overflow-x-hidden">
 
-    <header class="hero-header">
-        <div class="glow-orb"></div>
-        <div class="glow-orb orb-2"></div>
+    <!-- NAVEGACIÓN SUPERIOR FIJA -->
+    <nav class="bg-blue-950 text-white p-4 sticky top-0 z-50 flex justify-between items-center border-b-4 border-orange-500 shadow-lg">
+        <div class="flex items-center gap-2">
+            <h1 class="text-2xl font-black tracking-tighter">Enzo House</h1>
+        </div>
         
-        <div class="header-content">
-            <h1>Enzo House</h1>
-            <p>Elevamos tu experiencia tecnológica. Equipos seleccionados de alta gama con asesoramiento personalizado.</p>
+        <!-- CARRITO ARRIBA A LA DERECHA -->
+        <a href="carrito.html" class="relative bg-white text-black p-3 rounded-full border-2 border-black hover:bg-cyan-200 transition-colors shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="carrito-contador absolute -top-2 -right-2 bg-red-500 text-white text-xs font-black w-6 h-6 flex items-center justify-center rounded-full border-2 border-white">0</span>
+        </a>
+    </nav>
+
+    <!-- ENCABEZADO HERO -->
+    <header class="relative bg-gradient-to-br from-blue-900 to-blue-700 text-white text-center py-16 px-4 overflow-hidden">
+        <div class="absolute w-72 h-72 bg-blue-400/20 blur-3xl rounded-full -top-10 -left-10"></div>
+        <div class="absolute w-96 h-96 bg-green-400/10 blur-3xl rounded-full bottom-0 right-0"></div>
+        
+        <div class="relative z-10 max-w-2xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-black mb-4">Elevamos tu experiencia tecnológica</h2>
+            <p class="text-lg md:text-xl font-semibold text-blue-100">Equipos seleccionados de alta gama con asesoramiento personalizado.</p>
         </div>
     </header>
 
-    <!-- CONTROLES -->
-    <div class="controles-catalogo">
-        <nav class="menu-categorias">
-            <button class="btn-categoria activo" data-filtro="todos">Todos</button>
-            <button class="btn-categoria" data-filtro="auriculares">Auriculares</button>
-            <button class="btn-categoria" data-filtro="smartwatchs">Smart Watchs</button>
-            <button class="btn-categoria" data-filtro="manoslibres">Manos Libres</button>
-            <button class="btn-categoria" data-filtro="parlantes">Parlantes</button>
-            <button class="btn-categoria" data-filtro="relojes">Relojes</button>
-            <button class="btn-categoria" data-filtro="adaptadores">Adaptadores</button>
-        </nav>
-        
-        <div class="ordenador">
-            <select id="select-orden" class="select-elegante">
+    <!-- CONTROLES DE CATÁLOGO -->
+    <section class="max-w-7xl mx-auto px-4 py-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+            <!-- Categorías (Celeste, bordes negros, texto negro) -->
+            <nav class="menu-categorias flex flex-wrap justify-center gap-3">
+                <button class="btn-categoria bg-cyan-200 text-black border-2 border-black font-bold px-5 py-2 rounded-full hover:bg-cyan-300 transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] activo" data-filtro="todos">Todos</button>
+                <button class="btn-categoria bg-white text-black border-2 border-black font-bold px-5 py-2 rounded-full hover:bg-cyan-200 transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]" data-filtro="auriculares">Auriculares</button>
+                <button class="btn-categoria bg-white text-black border-2 border-black font-bold px-5 py-2 rounded-full hover:bg-cyan-200 transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]" data-filtro="smartwatchs">Smart Watchs</button>
+                <button class="btn-categoria bg-white text-black border-2 border-black font-bold px-5 py-2 rounded-full hover:bg-cyan-200 transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]" data-filtro="manoslibres">Manos Libres</button>
+                <button class="btn-categoria bg-white text-black border-2 border-black font-bold px-5 py-2 rounded-full hover:bg-cyan-200 transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]" data-filtro="parlantes">Parlantes</button>
+                <button class="btn-categoria bg-white text-black border-2 border-black font-bold px-5 py-2 rounded-full hover:bg-cyan-200 transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]" data-filtro="relojes">Relojes</button>
+                <button class="btn-categoria bg-white text-black border-2 border-black font-bold px-5 py-2 rounded-full hover:bg-cyan-200 transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]" data-filtro="adaptadores">Adaptadores</button>
+            </nav>
+            
+            <select id="select-orden" class="bg-white text-black border-2 border-black font-bold px-4 py-2 rounded-xl outline-none shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] cursor-pointer w-full md:w-auto">
                 <option value="defecto">Ordenar por...</option>
                 <option value="precio-menor">Menor Precio</option>
                 <option value="precio-mayor">Mayor Precio</option>
+                <option value="az">Nombre (A - Z)</option>
+                <option value="za">Nombre (Z - A)</option>
             </select>
         </div>
-    </div>
+    </section>
 
-    <!-- CONTENEDOR PRINCIPAL -->
-    <main class="contenedor-productos" id="contenedor-productos">
-        <!-- Los productos se generan aquí desde productos.js -->
+    <!-- CONTENEDOR DE PRODUCTOS -->
+    <main class="max-w-7xl mx-auto px-4 pb-20">
+        <div id="contenedor-productos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Los productos se inyectan acá por JS -->
+        </div>
     </main>
 
-    <footer class="footer-premium">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <h3>Enzo House</h3>
-                <p>Tu tienda de tecnología de confianza. Asesoramiento personalizado y los mejores equipos del mercado.</p>
-            </div>
-            <div class="footer-social">
-                <h4>Contactanos</h4>
-                <div class="social-icons">
-                    <a href="https://wa.me/5492616916791" aria-label="WhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Enzo House. Todos los derechos reservados.</p>
+    <footer class="bg-blue-950 text-white py-12 border-t-8 border-cyan-400">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h3 class="text-2xl font-black mb-2">Enzo House</h3>
+            <p class="text-blue-200 mb-6 font-semibold">Tu tienda de tecnología de confianza.</p>
+            <p class="text-sm text-blue-400">&copy; 2026 Enzo House. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- BOTÓN FLOTANTE DEL CARRITO -->
-    <button class="btn-carrito-flotante" id="btn-abrir-carrito">
-        <i class="fa-solid fa-cart-shopping"></i>
-        <span class="carrito-contador" id="carrito-contador">0</span>
-    </button>
-
-    <!-- VENTANA LATERAL DEL CARRITO -->
-    <div class="carrito-overlay" id="carrito-overlay">
-        <div class="carrito-modal">
-            <div class="carrito-header">
-                <h2>Tu Pedido</h2>
-                <button class="btn-cerrar-carrito" id="btn-cerrar-carrito"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            
-            <div class="carrito-body">
-                <div id="contenedor-items-carrito" class="contenedor-items-carrito">
-                    <p class="carrito-vacio">El carrito está vacío</p>
-                </div>
-                
-                <div class="carrito-total">
-                    <h3>Total: $<span id="carrito-total-precio">0</span></h3>
-                </div>
-                
-                <form id="form-checkout" class="formulario-checkout">
-                    <h3>Tus Datos</h3>
-                    <input type="text" id="cliente-nombre" placeholder="Nombre" required>
-                    <input type="text" id="cliente-apellido" placeholder="Apellido" required>
-                    <input type="number" id="cliente-dni" placeholder="DNI" required>
-                    <input type="number" id="cliente-telefono" placeholder="Teléfono" required>
-                    
-                    <button type="submit" class="btn-confirmar-compra">
-                        <i class="fa-brands fa-whatsapp"></i> Generar Pedido
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- EL SCRIPT DEBE IR AQUÍ, AL FINAL DE TODO -->
     <script src="js/productos.js"></script>
-
 </body>
 </html>
