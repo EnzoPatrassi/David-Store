@@ -4,7 +4,6 @@ const numeroWhatsApp = "5492616916791";
 // 1. AQUÍ AGREGAS TUS PRODUCTOS
 const listaProductos = [
   // --- AURICULARES (Sin características) ---
-  { nombre: "Auricular BT Crows Verde", precio: "20.100", imagen: "AURICULAR BT MODO-706 CROWS – VERDE.jpg", estado: "Nuevo", categoria: "auriculares", caracteristicas: ["Batería: 150mAh"] },
   { nombre: "Auricular BT Only Verde", precio: "12.100", imagen: "AURICULAR MOD82 BT – ONLY – VERDE.jpg", estado: "Nuevo", categoria: "auriculares" },
   { nombre: "Auricular BT Boom Only Amarillo", precio: "20.500", imagen: "AURICULAR MOD83 BT BOOM – ONLY – AMARILLO.jpg", estado: "Nuevo", categoria: "auriculares", caracteristicas: ["Batería: 150mAh"] },
   { nombre: "Auricular BT Boom Only Verde", precio: "20.500", imagen: "AURICULAR MOD83 BT BOOM – ONLY – VERDE.jpg", estado: "Nuevo", categoria: "auriculares", caracteristicas: ["Batería: 150mAh"] },
