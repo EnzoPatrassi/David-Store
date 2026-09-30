@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enzo House - Catálogo</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Carga de Tailwind CSS v4 -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        body { font-family: 'Nunito', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 overflow-x-hidden">
+
+    <!-- NAVEGACIÓN SUPERIOR FIJA -->
+    <nav class="bg-blue-950 text-white p-4 sticky top-0 z-50 flex justify-between items-center border-b-4 border-orange-500 shadow-lg">
+        <div class="flex items-center gap-6">
+            <a href="index.html" class="flex items-center gap-2">
+                <h1 class="text-2xl font-black tracking-tighter hidden sm:block">Enzo House</h1>
+            </a>
+            <!-- Links -->
+            <div class="flex gap-4">
+                <a href="index.html" class="font-bold hover:text-cyan-300 transition">Inicio</a>
+                <a href="productos.html" class="font-bold text-cyan-300">Catálogo</a>
+            </div>
+        </div>
+        
+        <a href="carrito.html" class="relative bg-white text-black p-3 rounded-full border-2 border-black hover:bg-cyan-200 transition-colors shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="carrito-contador absolute -top-2 -right-2 bg-red-500 text-white text-xs font-black w-6 h-6 flex items-center justify-center rounded-full border-2 border-white hidden">0</span>
+        </a>
+    </nav>
+
+    <!-- ENCABEZADO HERO -->
+    <header class="relative bg-gradient-to-br from-blue-900 to-blue-700 text-white text-center py-16 px-4 overflow-hidden">
+        <div class="absolute w-72 h-72 bg-blue-400/20 blur-3xl rounded-full -top-10 -left-10"></div>
+        <div class="absolute w-96 h-96 bg-green-400/10 blur-3xl rounded-full bottom-0 right-0"></div>
+        
+        <div class="relative z-10 max-w-2xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-black mb-4">Elevamos tu experiencia tecnológica</h2>
+            <p class="text-lg md:text-xl font-semibold text-blue-100">Equipos seleccionados de alta gama con asesoramiento personalizado.</p>
+        </div>
+    </header>
+
+    <!-- CONTROLES DE CATÁLOGO -->
+    <section class="max-w-7xl mx-auto px-4 py-8 relative">
+        
+        <div class="flex justify-between items-center w-full mb-6 md:mb-0">
+            <!-- Menú Hamburguesa (Solo celular) -->
+            <button id="btn-menu-mobile" class="md:hidden bg-white text-black border-2 border-black font-bold px-4 py-2 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                <i class="fa-solid fa-bars mr-2"></i> Categorías
+            </button>
+            
+            <!-- Ordenador (En celular se alinea a la derecha, en PC flota arriba a la derecha sin empujar al panal) -->
+            <select id="select-orden" class="bg-white text-black border-2 border-black font-bold px-4 py-2 rounded-xl outline-none shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] cursor-pointer md:absolute md:right-4 md:top-8 z-20 hover:bg-cyan-50 transition">
+                <option value="defecto">Ordenar por...</option>
+                <option value="precio-menor">Menor Precio</option>
+                <option value="precio-mayor">Mayor Precio</option>
+                <option value="az">Nombre (A - Z)</option>
+                <option value="za">Nombre (Z - A)</option>
+            </select>
+        </div>
+
+        <!-- Estructura tipo "Panal" (Clúster centrado con ancho limitado para forzar el escalonamiento) -->
+        <nav id="menu-categorias-nav" class="menu-categorias hidden md:flex flex-row flex-wrap justify-center items-center gap-x-3 gap-y-4 w-full max-w-2xl mx-auto transition-all">
+            <button class="btn-categoria bg-cyan-200 text-black border-2 border-black font-black px-6 py-2.5 rounded-full hover:bg-cyan-300 transition hover:-translate-y-1 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] activo" data-filtro="todos">Todos</button>
+            <button class="btn-categoria bg-white text-black border-2 border-black font-black px-6 py-2.5 rounded-full hover:bg-cyan-200 transition hover:-translate-y-1 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]" data-filtro="auriculares">Auriculares</button>
+            <button class="btn-categoria bg-white text-black border-2 border-black font-black px-6 py-2.5 rounded-full hover:bg-cyan-200 transition hover:-translate-y-1 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]" data-filtro="smartwatchs">Smart Watchs</button>
+            <button class="btn-categoria bg-white text-black border-2 border-black font-black px-6 py-2.5 rounded-full hover:bg-cyan-200 transition hover:-translate-y-1 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]" data-filtro="manoslibres">Manos Libres</button>
+            <button class="btn-categoria bg-white text-black border-2 border-black font-black px-6 py-2.5 rounded-full hover:bg-cyan-200 transition hover:-translate-y-1 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]" data-filtro="parlantes">Parlantes</button>
+            <button class="btn-categoria bg-white text-black border-2 border-black font-black px-6 py-2.5 rounded-full hover:bg-cyan-200 transition hover:-translate-y-1 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]" data-filtro="relojes">Relojes</button>
+            <button class="btn-categoria bg-white text-black border-2 border-black font-black px-6 py-2.5 rounded-full hover:bg-cyan-200 transition hover:-translate-y-1 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]" data-filtro="adaptadores">Adaptadores</button>
+            <button class="btn-categoria bg-white text-black border-2 border-black font-black px-6 py-2.5 rounded-full hover:bg-cyan-200 transition hover:-translate-y-1 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]" data-filtro="informatica">Informática</button>
+        </nav>
+        
+    </section>
+    
+    <!-- CONTENEDOR DE PRODUCTOS -->
+    <main class="max-w-7xl mx-auto px-4 pb-20">
+        <div id="contenedor-productos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Los productos se inyectan acá por JS -->
+        </div>
+    </main>
+
+    <footer class="bg-blue-950 text-white py-12 border-t-8 border-cyan-400">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h3 class="text-2xl font-black mb-2">Enzo House</h3>
+            <p class="text-blue-200 mb-6 font-semibold">Tu tienda de tecnología de confianza.</p>
+            <p class="text-sm text-blue-400">&copy; 2026 Enzo House. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/productos.js"></script>
+</body>
+</html>

@@ -3,7 +3,7 @@ const numeroWhatsApp = "5492616916791";
 
 // 1. AQUÍ AGREGAS TUS PRODUCTOS
 const listaProductos = [
-  // --- AURICULARES (Sin características) ---
+  // --- AURICULARES ---
   { nombre: "Auricular BT Only Verde", precio: "12.100", imagen: "AURICULAR MOD82 BT – ONLY – VERDE.jpg", estado: "Nuevo", categoria: "auriculares" },
   { nombre: "Auricular BT Boom Only Amarillo", precio: "20.500", imagen: "AURICULAR MOD83 BT BOOM – ONLY – AMARILLO.jpg", estado: "Nuevo", categoria: "auriculares", caracteristicas: ["Batería: 150mAh"] },
   { nombre: "Auricular BT Boom Only Verde", precio: "20.500", imagen: "AURICULAR MOD83 BT BOOM – ONLY – VERDE.jpg", estado: "Nuevo", categoria: "auriculares", caracteristicas: ["Batería: 150mAh"] },
@@ -19,7 +19,6 @@ const listaProductos = [
   { nombre: "Auriculares Havit Gamer Con Cable Y Micrófono", precio: "30.000", imagen: "Auriculares Havit Gamer.jpg", estado: "Nuevo", categoria: "auriculares" },
 
   // --- MANOS LIBRES ---
-  { nombre: "Manos Libres Top House", precio: "20.000", imagen: "Auriculares TOP HOUSE Tw931 Pro Blanco.jpg", estado: "Usado", categoria: "manoslibres", caracteristicas: ["Estuche: 300mAh", "Auric: 30mAh"] },
   { nombre: "Manos Libres TWS Blanco", precio: "14.900", imagen: "MANOS LIBRES MODS-127 TWS – STOCK – BLANCO.jpg", estado: "Nuevo", categoria: "manoslibres", caracteristicas: ["Estuche: 150mAh", "Auric: 25mAh"] },
   { nombre: "Manos Libres TWS Negro", precio: "14.900", imagen: "MANOS LIBRES MODS-127 TWS – STOCK – NEGRO.jpg", estado: "Nuevo", categoria: "manoslibres", caracteristicas: ["Estuche: 150mAh", "Auric: 25mAh"] },
   { nombre: "Manos Libres TWS Rosa", precio: "14.900", imagen: "MANOS LIBRES MODS-127 TWS – STOCK – ROSA.jpg", estado: "Nuevo", categoria: "manoslibres", caracteristicas: ["Estuche: 150mAh", "Auric: 25mAh"] },
@@ -87,6 +86,13 @@ const listaProductos = [
   { nombre: "Adaptador Hub de 4 puertos con boca cable USB", precio: "9.100", imagen: "HUB DE PUERTOS 4 BOCAS CABLE USB MODX-0011 – VARIOS – PLATEADO.jpg", estado: "Nuevo", categoria: "adaptadores" },
   { nombre: "Adaptador SIM", precio: "1.200", imagen: "ADAPTADOR SIM.jpg", estado: "Nuevo", categoria: "adaptadores" },
   { nombre: "Adaptador MICROSD a USB", precio: "4.300", imagen: "ADAPTADOR MICROSD A USB.jpg", estado: "Nuevo", categoria: "adaptadores" },
+
+  // --- Informática ---
+  { nombre: "Combo Inalámbrico Recargable (Teclado + Mouse) Xaea Blanco", precio: "43.600", imagen: "COMBO INALAMBRICO RECARGABLE W+BT MODX-064 – XAEA – BLANCO.jpg", estado: "Nuevo", categoria: "informatica", caracteristicas: ["Batería: 400mAh"] },
+  { nombre: "Combo Inalámbrico Recargable (Teclado + Mouse) Xaea Gris", precio: "43.600", imagen: "COMBO INALAMBRICO RECARGABLE W+BT MODX-064 – XAEA – GRIS.jpg", estado: "Nuevo", categoria: "informatica", caracteristicas: ["Batería: 400mAh"] },
+  { nombre: "Pendrive 64GB", precio: "25.500", imagen: "PENDRIVE MODS-980 64GB – STOCK – NEGRO.jpg", estado: "Nuevo", categoria: "informatica" },
+  { nombre: "Pendrive 128GB", precio: "40.100", imagen: "PENDRIVE MODS-981 128GB – STOCK – NEGRO.jpg", estado: "Nuevo", categoria: "informatica" },
+  { nombre: "Calculadora Rosa", precio: "15.600", imagen: "CALCULADORA COLORES GRANDE MODV-001W – VARIOS – ROSA.jpg", estado: "Nuevo", categoria: "informatica" },
 ];
 
 // 1. SISTEMA GLOBAL DE CARRITO
@@ -254,7 +260,7 @@ if (contenedorPaginaCarrito) {
         let total = 0;
 
         if (carrito.length === 0) {
-            contenedorPaginaCarrito.innerHTML = '<div class="text-center py-8 text-slate-500 font-bold"><i class="fa-solid fa-basket-shopping text-4xl mb-3"></i><p>Tu carrito está vacío</p><a href="index.html" class="inline-block mt-4 text-blue-600 underline">Volver al catálogo</a></div>';
+            contenedorPaginaCarrito.innerHTML = '<div class="text-center py-8 text-slate-500 font-bold"><i class="fa-solid fa-basket-shopping text-4xl mb-3"></i><p>Tu carrito está vacío</p><a href="productos.html" class="inline-block mt-4 text-blue-600 underline">Volver al catálogo</a></div>';
             totalPaginaCarrito.innerText = "0";
             return;
         }
@@ -323,3 +329,14 @@ if (contenedorPaginaCarrito) {
 
 // INICIAR COMÚN
 document.addEventListener('DOMContentLoaded', actualizarContadorCabecera);
+
+// --- MENÚ HAMBURGUESA PARA CATEGORÍAS EN MÓVIL ---
+const btnMenuMobile = document.getElementById('btn-menu-mobile');
+const menuCategoriasNav = document.getElementById('menu-categorias-nav');
+
+if (btnMenuMobile && menuCategoriasNav) {
+    btnMenuMobile.addEventListener('click', () => {
+        menuCategoriasNav.classList.toggle('hidden');
+        menuCategoriasNav.classList.toggle('flex');
+    });
+}
