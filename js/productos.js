@@ -266,13 +266,13 @@ if (contenedorPaginaCarrito) {
             total += subtotal;
 
             contenedorPaginaCarrito.innerHTML += `
-            <div class="flex items-center gap-4 p-4 bg-white comic-panel mb-4">
-                <img src="images/${item.imagen}" alt="${item.nombre}" class="w-20 h-20 object-contain border-2 border-azul">
-                <div class="flex-grow">
-                    <h4 class="comic-font tracking-wide text-xl text-azul leading-tight">${item.nombre}</h4>
-                    <p class="comic-font text-2xl text-coral tracking-wide">$${subtotal.toLocaleString('es-AR')}</p>
+            <div class="flex flex-col sm:flex-row items-center gap-4 p-4 bg-white comic-panel mb-4">
+                <img src="images/${item.imagen}" alt="${item.nombre}" class="w-20 h-20 object-contain border-2 border-azul flex-shrink-0">
+                <div class="flex-grow text-center sm:text-left w-full">
+                    <h4 class="comic-font tracking-wide text-lg sm:text-xl text-azul leading-tight">${item.nombre}</h4>
+                    <p class="comic-font text-xl sm:text-2xl text-coral tracking-wide mt-1">$${subtotal.toLocaleString('es-AR')}</p>
                 </div>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center justify-center gap-2 flex-shrink-0 mt-2 sm:mt-0">
                     <button type="button" onclick="cambiarCantidad('${item.nombre}', 'resta')" class="bg-crema text-azul comic-btn w-8 h-8 flex justify-center items-center hover:bg-turquesa hover:text-white">-</button>
                     <span class="comic-font text-xl w-6 text-center text-azul">${item.cantidad}</span>
                     <button type="button" onclick="cambiarCantidad('${item.nombre}', 'suma')" class="bg-crema text-azul comic-btn w-8 h-8 flex justify-center items-center hover:bg-turquesa hover:text-white">+</button>
