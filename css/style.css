@@ -6,35 +6,35 @@
 }
 
 :root {
-    /* Paleta Principal solicitada */
-    --azul-profundo: #1e3a8a;
+    /* Paleta Cómic: Colores saturados */
+    --azul-profundo: #0047b3; /* Azul Marvel */
     --azul-claro: #3b82f6;
-    --naranja-accion: #f97316;
-    --naranja-hover: #ea580c;
-    --rojo-alerta: #ef4444;
-    --verde-exito: #10b981;
+    --naranja-accion: #ff9900;
+    --naranja-hover: #cc7a00;
+    --rojo-alerta: #e62429;   /* Rojo Marvel */
+    --verde-exito: #00cc66;
     --verde-whatsapp: #25D366;
+    --rosa-kame: #ff6699;     /* Tu rosa característico */
     
-    /* Colores de fondo y texto */
-    --bg-color: #f0fdfa;       /* Un tono menta/celeste ultra claro de fondo */
+    --bg-color: #ffffff;
     --card-bg: #ffffff;
-    --text-main: #334155;
-    --text-muted: #64748b;
-    --border-color: #e2e8f0;
+    --text-main: #000000;
     
-    /* Sombras */
-    --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
-    --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.1);
-    --shadow-hover: 0 20px 25px -5px rgba(59, 130, 246, 0.15); /* Sombra azulada */
+    /* Sombras duras de viñeta de cómic */
+    --shadow-sm: 4px 4px 0px 0px #000000;
+    --shadow-md: 8px 8px 0px 0px #000000;
+    --shadow-hover: 12px 12px 0px 0px #000000;
 }
 
 body {
-    font-family: 'Nunito', sans-serif; /* Nueva tipografía más amigable */
+    font-family: 'Nunito', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-main);
+    /* Trama de puntos (Halftone) clásica de los cómics */
+    background-image: radial-gradient(circle, #cbd5e1 2px, transparent 2.5px);
+    background-size: 20px 20px;
     line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden; /* Previene scroll horizontal en móviles */
+    overflow-x: hidden;
 }
 
 /* --- ENCABEZADO AZUL --- */

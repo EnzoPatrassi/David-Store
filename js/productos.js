@@ -4,7 +4,6 @@ const numeroWhatsApp = "5492616916791";
 // 1. AQUÍ AGREGAS TUS PRODUCTOS
 const listaProductos = [
   // --- AURICULARES ---
-  { nombre: "Auricular BT Only Verde", precio: "12.100", imagen: "AURICULAR MOD82 BT – ONLY – VERDE.jpg", estado: "Nuevo", categoria: "auriculares" },
   { nombre: "Auricular BT Boom Only Amarillo", precio: "20.500", imagen: "AURICULAR MOD83 BT BOOM – ONLY – AMARILLO.jpg", estado: "Nuevo", categoria: "auriculares", caracteristicas: ["Batería: 150mAh"] },
   { nombre: "Auricular BT Boom Only Verde", precio: "20.500", imagen: "AURICULAR MOD83 BT BOOM – ONLY – VERDE.jpg", estado: "Nuevo", categoria: "auriculares", caracteristicas: ["Batería: 150mAh"] },
   { nombre: "Auricular Radiance Xaea Beige", precio: "45.400", imagen: "AURICULAR MODX-703 RADIANCE – XAEA – BEIGE.jpg", estado: "Nuevo", categoria: "auriculares", caracteristicas: ["Batería: 400mAh"] },
@@ -195,33 +194,31 @@ if (contenedorCatalogo) {
 
         let html = "";
         filtrados.forEach(p => {
-            const etiquetaColor = p.estado.toLowerCase() === 'nuevo' ? 'bg-green-500 text-white' : 'bg-red-500 text-white';
             
-            // Inyectamos las características rojas si las tiene
+            // Características Lavanda secundario
             let htmlCaracteristicas = "";
             if (p.caracteristicas && p.caracteristicas.length > 0) {
-                htmlCaracteristicas = `<div class="flex flex-wrap justify-center gap-1 mb-2 mt-1">`;
+                htmlCaracteristicas = `<div class="flex flex-wrap justify-center gap-2 mb-3 mt-2">`;
                 p.caracteristicas.forEach(carac => {
-                    htmlCaracteristicas += `<span class="bg-red-500 text-white text-[10px] font-black uppercase px-2 py-1 rounded-md border border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">${carac}</span>`;
+                    htmlCaracteristicas += `<span class="bg-lavanda text-azul comic-btn text-[10px] px-2 py-1 rounded-none border-2">${carac}</span>`;
                 });
                 htmlCaracteristicas += `</div>`;
             }
             
+            // Estructura de "Viñeta de Cómic" (Sin etiqueta de estado)
             html += `
-            <article class="bg-white rounded-2xl overflow-hidden border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 transition flex flex-col relative">
-                <span class="absolute top-3 right-3 px-3 py-1 text-xs font-black uppercase rounded-lg ${etiquetaColor} z-10 border border-black">${p.estado}</span>
-                
-                <div class="h-48 bg-white p-4 border-b-2 border-slate-100 flex items-center justify-center">
-                    <img src="images/${p.imagen}" alt="${p.nombre}" class="max-h-full object-contain hover:scale-110 transition">
+            <article class="bg-white overflow-hidden comic-panel flex flex-col relative group">
+                <div class="h-52 bg-white p-4 border-b-4 border-azul flex items-center justify-center">
+                    <img src="images/${p.imagen}" alt="${p.nombre}" class="max-h-full object-contain group-hover:scale-110 transition">
                 </div>
                 
-                <div class="p-4 flex flex-col flex-grow text-center">
-                    <h2 class="font-black text-blue-950 mb-1 leading-tight">${p.nombre}</h2>
+                <div class="p-5 flex flex-col flex-grow text-center bg-crema/50">
+                    <h2 class="comic-font text-2xl text-azul mb-1 leading-tight tracking-wide">${p.nombre}</h2>
                     ${htmlCaracteristicas}
-                    <div class="mt-auto">
-                        <p class="text-2xl font-black text-black mb-3">$${p.precio}</p>
-                        <!-- BOTÓN CON BORDES NEGROS -->
-                        <button onclick="agregarAlCarrito('${p.nombre}')" class="w-full bg-orange-500 text-white border-2 border-black font-black py-2 rounded-full hover:bg-orange-600 transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    <div class="mt-auto pt-4">
+                        <p class="comic-font text-4xl text-coral mb-4 tracking-wide">$${p.precio}</p>
+                        <!-- Botón Turquesa Principal -->
+                        <button onclick="agregarAlCarrito('${p.nombre}')" class="w-full bg-turquesa text-white comic-btn py-2 text-xl hover:bg-[#1CA8A8] transition">
                             <i class="fa-solid fa-cart-plus mr-1"></i> Agregar
                         </button>
                     </div>
@@ -235,11 +232,11 @@ if (contenedorCatalogo) {
     botonesCategoria.forEach(boton => {
         boton.addEventListener('click', () => {
             botonesCategoria.forEach(b => {
-                b.classList.remove('bg-cyan-200');
-                b.classList.add('bg-white');
+                b.classList.remove('bg-turquesa', 'text-white');
+                b.classList.add('bg-white', 'text-azul');
             });
-            boton.classList.remove('bg-white');
-            boton.classList.add('bg-cyan-200');
+            boton.classList.remove('bg-white', 'text-azul');
+            boton.classList.add('bg-turquesa', 'text-white');
             filtroActual = boton.dataset.filtro;
             actualizarVistaCatalogo();
         });
@@ -247,7 +244,6 @@ if (contenedorCatalogo) {
 
     actualizarVistaCatalogo();
 }
-
 
 // 3. LÓGICA PARA CARRITO.HTML
 const contenedorPaginaCarrito = document.getElementById('pagina-items-carrito');
@@ -260,7 +256,7 @@ if (contenedorPaginaCarrito) {
         let total = 0;
 
         if (carrito.length === 0) {
-            contenedorPaginaCarrito.innerHTML = '<div class="text-center py-8 text-slate-500 font-bold"><i class="fa-solid fa-basket-shopping text-4xl mb-3"></i><p>Tu carrito está vacío</p><a href="productos.html" class="inline-block mt-4 text-blue-600 underline">Volver al catálogo</a></div>';
+            contenedorPaginaCarrito.innerHTML = '<div class="text-center py-8 text-azul/60 font-black"><i class="fa-solid fa-basket-shopping text-5xl mb-3"></i><p>Tu carrito está vacío</p><a href="productos.html" class="inline-block mt-4 text-turquesa comic-font text-xl underline">Volver al catálogo</a></div>';
             totalPaginaCarrito.innerText = "0";
             return;
         }
@@ -270,17 +266,17 @@ if (contenedorPaginaCarrito) {
             total += subtotal;
 
             contenedorPaginaCarrito.innerHTML += `
-            <div class="flex items-center gap-4 p-4 border-2 border-slate-100 rounded-xl">
-                <img src="images/${item.imagen}" alt="${item.nombre}" class="w-20 h-20 object-contain">
+            <div class="flex items-center gap-4 p-4 bg-white comic-panel mb-4">
+                <img src="images/${item.imagen}" alt="${item.nombre}" class="w-20 h-20 object-contain border-2 border-azul">
                 <div class="flex-grow">
-                    <h4 class="font-black text-blue-950 leading-tight">${item.nombre}</h4>
-                    <p class="font-black text-red-500">$${subtotal.toLocaleString('es-AR')}</p>
+                    <h4 class="comic-font tracking-wide text-xl text-azul leading-tight">${item.nombre}</h4>
+                    <p class="comic-font text-2xl text-coral tracking-wide">$${subtotal.toLocaleString('es-AR')}</p>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button type="button" onclick="cambiarCantidad('${item.nombre}', 'resta')" class="bg-slate-200 w-8 h-8 rounded-lg font-black border border-black hover:bg-slate-300">-</button>
-                    <span class="font-bold w-4 text-center">${item.cantidad}</span>
-                    <button type="button" onclick="cambiarCantidad('${item.nombre}', 'suma')" class="bg-slate-200 w-8 h-8 rounded-lg font-black border border-black hover:bg-slate-300">+</button>
-                    <button type="button" onclick="eliminarDelCarrito('${item.nombre}')" class="bg-red-100 text-red-500 w-8 h-8 rounded-lg font-black border border-red-500 hover:bg-red-200 ml-2"><i class="fa-solid fa-trash"></i></button>
+                    <button type="button" onclick="cambiarCantidad('${item.nombre}', 'resta')" class="bg-crema text-azul comic-btn w-8 h-8 flex justify-center items-center hover:bg-turquesa hover:text-white">-</button>
+                    <span class="comic-font text-xl w-6 text-center text-azul">${item.cantidad}</span>
+                    <button type="button" onclick="cambiarCantidad('${item.nombre}', 'suma')" class="bg-crema text-azul comic-btn w-8 h-8 flex justify-center items-center hover:bg-turquesa hover:text-white">+</button>
+                    <button type="button" onclick="eliminarDelCarrito('${item.nombre}')" class="bg-coral text-white comic-btn w-8 h-8 flex justify-center items-center ml-2 hover:bg-red-700"><i class="fa-solid fa-trash text-sm"></i></button>
                 </div>
             </div>`;
         });
@@ -288,41 +284,52 @@ if (contenedorPaginaCarrito) {
         totalPaginaCarrito.innerText = total.toLocaleString('es-AR');
     }
 
-    formCheckoutPagina.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        if (carrito.length === 0) {
-            alert("El carrito está vacío.");
-            return;
-        }
+    // ====== FUNCIÓN DEL BOTÓN ENVIAR PEDIDO ======
+    if (formCheckoutPagina) {
+        formCheckoutPagina.addEventListener('submit', function(e) {
+            e.preventDefault(); // Evita que la página se recargue
+            
+            if (carrito.length === 0) {
+                alert("El carrito está vacío. Agrega productos antes de enviar.");
+                return;
+            }
 
-        const nombre = document.getElementById('cliente-nombre').value;
-        const dni = document.getElementById('cliente-dni').value;
-        const tel = document.getElementById('cliente-telefono').value;
-        const pago = document.getElementById('cliente-pago').value;
+            const nombre = document.getElementById('cliente-nombre').value;
+            const dni = document.getElementById('cliente-dni').value;
+            const pago = document.getElementById('cliente-pago').value;
 
-        let texto = `*NUEVO PEDIDO - ENZO HOUSE*\n\n`;
-        texto += `👤 *Cliente:*\n- Nombre: ${nombre}\n- DNI: ${dni}\n- Tel: ${tel}\n- Medio de pago: ${pago}\n\n`;
-        texto += `🛍️ *Detalle:*\n`;
-        
-        let total = 0;
-        carrito.forEach(item => {
-            const subtotal = item.precio * item.cantidad;
-            total += subtotal;
-            texto += `▪️ ${item.cantidad}x ${item.nombre} ($${subtotal.toLocaleString('es-AR')})\n`;
+            let texto = `🏠 *NUEVO PEDIDO - ENZO HOUSE* 🏠\n`;
+            texto += `---------------------------------------\n\n`;
+            
+            texto += `🧑 *DATOS DEL CLIENTE*\n`;
+            texto += `🔸 *Nombre:* ${nombre}\n`;
+            texto += `🔸 *DNI:* ${dni}\n`;
+            texto += `💳 *Pago:* ${pago}\n\n`;
+            
+            texto += `🛒 *DETALLE DEL PEDIDO*\n`;
+            
+            let total = 0;
+            carrito.forEach(item => {
+                const subtotal = item.precio * item.cantidad;
+                total += subtotal;
+                texto += `✅ ${item.cantidad}x ${item.nombre} ($${subtotal.toLocaleString('es-AR')})\n`;
+            });
+            
+            texto += `\n---------------------------------------\n`;
+            texto += `💵 *TOTAL A PAGAR: $${total.toLocaleString('es-AR')}*\n\n`;
+            texto += `¡Gracias por elegirnos! Quedo a la espera para coordinar el retiro.`;
+            
+            const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
+            window.open(url, '_blank');
+            
+            // Vaciar carrito después de comprar
+            carrito = [];
+            guardarCarrito();
+            renderizarPaginaCarrito();
+            actualizarContadorCabecera();
+            formCheckoutPagina.reset();
         });
-        
-        texto += `\n💰 *TOTAL A PAGAR: $${total.toLocaleString('es-AR')}*`;
-        
-        const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
-        window.open(url, '_blank');
-        
-        carrito = [];
-        guardarCarrito();
-        renderizarPaginaCarrito();
-        actualizarContadorCabecera();
-        formCheckoutPagina.reset();
-    });
+    }
 
     renderizarPaginaCarrito();
 }

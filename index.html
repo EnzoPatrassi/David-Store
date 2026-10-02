@@ -3,91 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enzo House - Tu Tecnología en Mendoza</title>
+    <title>Enzo House - Tu Tecnología</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Carga de Tailwind CSS v4 -->
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <style type="text/tailwindcss">
-        body { font-family: 'Nunito', sans-serif; }
+        @theme {
+            --color-crema: #F5F1E8;
+            --color-azul: #202B65;
+            --color-turquesa: #20BFC0;
+            --color-rosa: #E8A0B0;
+            --color-coral: #C92F4B;
+            --color-verde: #3F9B55;
+            --color-lavanda: #A9A2D0;
+        }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--color-crema);
+            color: var(--color-azul);
+            /* Trama de puntos (Halftone) estilo cómic retro */
+            background-image: radial-gradient(circle, rgba(32, 43, 101, 0.1) 2px, transparent 2.5px);
+            background-size: 20px 20px;
+            overflow-x: hidden;
+        }
+        
+        /* Utilidades Cómic */
+        .comic-font { font-family: 'Bangers', cursive; letter-spacing: 1px; }
+        
+        .comic-panel {
+            background-color: #ffffff;
+            border: 4px solid var(--color-azul);
+            box-shadow: 6px 6px 0px 0px var(--color-azul);
+            transition: all 0.2s ease;
+        }
+        .comic-panel:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 10px 10px 0px 0px var(--color-azul);
+        }
+        
+        .comic-btn {
+            border: 3px solid var(--color-azul);
+            box-shadow: 4px 4px 0px 0px var(--color-azul);
+            font-family: 'Bangers', cursive;
+            letter-spacing: 2px;
+            transition: all 0.1s ease;
+            text-transform: uppercase;
+        }
+        .comic-btn:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px 0px var(--color-azul);
+        }
+        
+        /* Inputs y Selects */
+        input, select {
+            border: 3px solid var(--color-azul);
+            background-color: #ffffff;
+            color: var(--color-azul);
+            font-weight: 800;
+        }
+        input:focus, select:focus {
+            outline: none;
+            background-color: var(--color-crema);
+        }
     </style>
 </head>
-<body class="bg-slate-50 overflow-x-hidden flex flex-col min-h-screen">
-
+<body class="flex flex-col min-h-screen">
     <!-- NAVEGACIÓN -->
-    <nav class="bg-blue-950 text-white p-4 sticky top-0 z-50 flex justify-between items-center border-b-4 border-orange-500 shadow-lg">
+    <nav class="bg-white text-azul p-4 sticky top-0 z-50 flex justify-between items-center border-b-4 border-azul shadow-[0_4px_0_0_#202B65]">
         <div class="flex items-center gap-6">
             <a href="index.html" class="flex items-center gap-2">
-                <h1 class="text-2xl font-black tracking-tighter">Enzo House</h1>
+                <!-- Logo Kame House -->
+                <i class="fa-solid fa-house text-rosa text-3xl" style="-webkit-text-stroke: 2px #202B65;"></i>
+                <h1 class="comic-font text-3xl tracking-wider mt-1">Enzo House</h1>
             </a>
-            <!-- Links (Ocultos en celulares muy chicos, visibles en el resto) -->
             <div class="hidden sm:flex gap-4">
-                <a href="index.html" class="font-bold text-cyan-300">Inicio</a>
-                <a href="productos.html" class="font-bold hover:text-cyan-300 transition">Catálogo</a>
+                <a href="index.html" class="font-bold text-turquesa underline decoration-4">Inicio</a>
+                <a href="productos.html" class="font-bold hover:text-turquesa transition">Catálogo</a>
             </div>
         </div>
         
-        <a href="carrito.html" class="relative bg-white text-black p-3 rounded-full border-2 border-black hover:bg-cyan-200 transition-colors shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+        <a href="carrito.html" class="relative bg-white text-azul p-3 rounded-full comic-btn hover:bg-turquesa hover:text-white flex items-center justify-center">
             <i class="fa-solid fa-cart-shopping"></i>
-            <span class="carrito-contador absolute -top-2 -right-2 bg-red-500 text-white text-xs font-black w-6 h-6 flex items-center justify-center rounded-full border-2 border-white hidden">0</span>
+            <span class="carrito-contador absolute -top-3 -right-3 bg-coral text-white comic-font text-lg w-7 h-7 flex items-center justify-center rounded-full border-2 border-azul hidden">0</span>
         </a>
     </nav>
 
-    <!-- HERO SECTION (Portada) -->
-    <header class="relative bg-gradient-to-br from-blue-900 to-blue-700 text-white text-center py-20 px-4 overflow-hidden flex-grow flex flex-col justify-center">
-        <div class="absolute w-96 h-96 bg-blue-400/20 blur-3xl rounded-full -top-10 -left-10"></div>
-        <div class="absolute w-96 h-96 bg-green-400/10 blur-3xl rounded-full bottom-0 right-0"></div>
-        
-        <div class="relative z-10 max-w-3xl mx-auto">
-            <span class="inline-block bg-orange-500 text-white px-4 py-1 rounded-full text-sm font-bold mb-6 shadow-lg border border-orange-400">
-                <i class="fa-solid fa-bolt text-yellow-300 mr-1"></i> Stock actualizado y envíos en Mendoza
-            </span>
-            <h2 class="text-5xl md:text-6xl font-black mb-6 leading-tight">La mejor tecnología,<br>al alcance de tu mano.</h2>
-            <p class="text-xl font-semibold text-blue-100 mb-10">Equipos seleccionados de alta gama, asesoramiento personalizado y los mejores precios del mercado.</p>
+    <!-- HERO SECTION (Viñeta Principal) -->
+    <header class="max-w-4xl mx-auto mt-12 mb-16 px-4 w-full">
+        <div class="comic-panel bg-white text-center py-16 px-6 relative overflow-hidden">
             
-            <a href="productos.html" class="inline-block bg-green-500 text-white border-2 border-black font-black text-xl px-10 py-4 rounded-full hover:bg-green-600 transition hover:-translate-y-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                Ver Catálogo Completo <i class="fa-solid fa-arrow-right ml-2"></i>
+            <h2 class="comic-font text-5xl md:text-7xl mb-6 text-azul mt-6">Tu nueva tecnología<br>en un solo universo</h2>
+            <p class="text-xl font-black text-azul/80 mb-10">Equipos de alta gama. Precios heroicos.</p>
+            
+            <a href="productos.html" class="inline-block bg-turquesa text-white comic-btn text-2xl px-10 py-4 hover:bg-[#1CA8A8]">
+                Entrar al Catálogo
             </a>
         </div>
     </header>
 
-    <!-- SECCIÓN DE BENEFICIOS -->
-    <section class="max-w-7xl mx-auto px-4 py-16">
+    <!-- BENEFICIOS (Paneles secundarios) -->
+    <section class="max-w-6xl mx-auto px-4 py-8 mb-16">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-2xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-center">
-                <div class="bg-cyan-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-black">
-                    <i class="fa-solid fa-headphones text-2xl text-blue-950"></i>
-                </div>
-                <h3 class="font-black text-xl mb-2 text-blue-950">Asesoramiento</h3>
-                <p class="font-semibold text-slate-600 text-sm">Te ayudamos a elegir el equipo perfecto según tus necesidades y presupuesto.</p>
+            <div class="comic-panel p-8 text-center">
+                <i class="fa-solid fa-headphones text-4xl text-turquesa mb-4 drop-shadow-[2px_2px_0px_#202B65]"></i>
+                <h3 class="comic-font text-3xl mb-2 text-azul">Asesoramiento</h3>
+                <p class="font-bold text-azul/70 text-sm">Te ayudamos a elegir el equipo perfecto según tus necesidades.</p>
             </div>
-            <div class="bg-white p-8 rounded-2xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-center">
-                <div class="bg-orange-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-black">
-                    <i class="fa-solid fa-box-open text-2xl text-orange-600"></i>
-                </div>
-                <h3 class="font-black text-xl mb-2 text-blue-950">Retiro Fácil</h3>
-                <p class="font-semibold text-slate-600 text-sm">Hacé tu pedido online y pasá a buscarlo por nuestro punto de entrega cuando esté listo.</p>
+            <div class="comic-panel p-8 text-center">
+                <i class="fa-solid fa-box-open text-4xl text-rosa mb-4 drop-shadow-[2px_2px_0px_#202B65]"></i>
+                <h3 class="comic-font text-3xl mb-2 text-azul">Retiro Fácil</h3>
+                <p class="font-bold text-azul/70 text-sm">Hacé tu pedido y pasá a buscarlo por nuestro punto de entrega.</p>
             </div>
-            <div class="bg-white p-8 rounded-2xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-center">
-                <div class="bg-green-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-black">
-                    <i class="fa-solid fa-money-bill-wave text-2xl text-green-700"></i>
-                </div>
-                <h3 class="font-black text-xl mb-2 text-blue-950">Pagos Flexibles</h3>
-                <p class="font-semibold text-slate-600 text-sm">Aceptamos efectivo al momento de retirar, o transferencias vía Mercado Pago.</p>
+            <div class="comic-panel p-8 text-center">
+                <i class="fa-solid fa-money-bill-wave text-4xl text-coral mb-4 drop-shadow-[2px_2px_0px_#202B65]"></i>
+                <h3 class="comic-font text-3xl mb-2 text-azul">Pagos Flexibles</h3>
+                <p class="font-bold text-azul/70 text-sm">Aceptamos efectivo al retirar o transferencias al instante.</p>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-blue-950 text-white py-12 border-t-8 border-cyan-400 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h3 class="text-2xl font-black mb-2">Enzo House</h3>
-            <p class="text-blue-200 mb-6 font-semibold">Tu tienda de tecnología de confianza en Mendoza.</p>
-            <p class="text-sm text-blue-400">&copy; 2026 Enzo House. Todos los derechos reservados.</p>
+    <footer class="bg-azul text-white py-12 border-t-8 border-azul mt-auto shadow-[0_-4px_0_0_#20BFC0]">
+        <div class="max-w-7xl mx-auto px-4 text-center flex flex-col items-center">
+            <h3 class="comic-font text-4xl mb-2 text-crema">Enzo House</h3>
+            <p class="text-crema/80 font-bold mb-6">Tu tienda de tecnología.</p>
+            
+            <!-- Botón Instagram -->
+            <a href="https://instagram.com/tienda.enzohouse" target="_blank" class="inline-flex items-center gap-2 bg-rosa text-azul comic-btn px-6 py-2 mb-8 hover:bg-turquesa hover:text-white transition">
+                <i class="fa-brands fa-instagram text-2xl"></i>
+                <span class="font-black tracking-wider">tienda.enzohouse</span>
+            </a>
+            
+            <!-- Derechos de autor -->
+            <p class="text-crema/60 text-sm font-bold">&copy; 2026 Enzo House. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- Script para que funcione el contador del carrito en el inicio -->
     <script src="js/productos.js"></script>
 </body>
 </html>
